@@ -1,0 +1,32 @@
+{
+  "name": "daiyunying-platform-electron",
+  "version": "1.0.0",
+  "description": "代运营数字化平台 - 桌面版 (Electron)",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.daiyunying.platform",
+    "productName": "DaiyunyingPlatform",
+    "copyright": "Copyright (C) 2026",
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*"
+    ],
+    "win": {
+      "target": "portable",
+      "artifactName": "代运营数字化平台-${version}.${ext}"
+    },
+    "directories": {
+      "output": "C:/dybuild/out"
+    }
+  }
+}

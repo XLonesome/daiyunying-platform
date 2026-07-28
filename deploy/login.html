@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 代运营数字化平台</title>
+    <link rel="stylesheet" href="css/login.css">
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:false,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'c0f48b6cfa6341a2aed71435bfccd584'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+    <div class="login-container">
+        <!-- ====== 左侧品牌区 ====== -->
+        <div class="login-left" id="login-left-panel">
+            <div class="login-branding">
+                <div class="brand-logo" id="login-brand-logo">OP</div>
+                <h1 id="login-brand-title">代运营数字化平台</h1>
+                <p id="login-brand-subtitle">一站式代运营数据管理与自动化平台</p>
+                <ul class="brand-features" id="login-brand-features">
+                    <li>多账号数据实时监控与可视化</li>
+                    <li>视频/文案自动解析与下载</li>
+                    <li>内嵌自动化浏览器操作</li>
+                    <li>团队协作与权限分级管理</li>
+                </ul>
+                <div class="brand-stats">
+                    <div class="brand-stat">
+                        <span class="stat-num">5</span>
+                        <span class="stat-label">子账号</span>
+                    </div>
+                    <div class="brand-stat">
+                        <span class="stat-num">7</span>
+                        <span class="stat-label">功能模块</span>
+                    </div>
+                    <div class="brand-stat">
+                        <span class="stat-num">3</span>
+                        <span class="stat-label">平台支持</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 右侧登录表单区 ====== -->
+        <div class="login-right">
+            <div class="login-form-wrapper">
+                <h2 id="login-welcome-text">欢迎登录</h2>
+                <p class="login-subtitle">请选择登录方式进入平台</p>
+
+                <!-- Tab 切换 -->
+                <div class="login-tabs">
+                    <button class="login-tab active" data-tab="employee">员工登录</button>
+                    <button class="login-tab" data-tab="admin">管理员登录</button>
+                </div>
+
+                <!-- 员工登录表单 -->
+                <form class="login-form active" id="employee-form" autocomplete="off">
+                    <div class="form-group">
+                        <label>员工账号</label>
+                        <input type="text" id="emp-account" placeholder="请输入员工账号" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <div class="password-input-wrap">
+                            <input type="password" id="emp-password" placeholder="请输入密码" autocomplete="new-password" />
+                            <button type="button" class="toggle-password" data-target="emp-password" title="显示/隐藏密码">&#128065;</button>
+                        </div>
+                    </div>
+                    <div class="login-error" id="emp-error"></div>
+                    <button type="submit" class="login-btn">员工登录</button>
+                    <div class="login-hint" id="emp-login-hint">
+                        <p style="font-size:12px;margin-top:12px;color:var(--color-text-light,#94a3b8);">员工账号由管理员在后台添加后生成</p>
+                    </div>
+                </form>
+
+                <!-- 管理员登录表单 -->
+                <form class="login-form" id="admin-form" autocomplete="off">
+                    <div class="form-group">
+                        <label>管理员账号</label>
+                        <input type="text" id="admin-account" placeholder="请输入管理员账号" autocomplete="off" />
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <div class="password-input-wrap">
+                            <input type="password" id="admin-password" placeholder="请输入管理员密码" autocomplete="new-password" />
+                            <button type="button" class="toggle-password" data-target="admin-password" title="显示/隐藏密码">&#128065;</button>
+                        </div>
+                    </div>
+                    <div class="login-error" id="admin-error"></div>
+                    <button type="submit" class="login-btn admin-login-btn">管理员登录</button>
+                    <div class="login-hint" id="admin-login-hint">
+                        <p style="font-size:12px;margin-top:12px;color:var(--color-text-light,#94a3b8);">请输入管理员账号和密码</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 通知 -->
+    <div class="login-toast" id="login-toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase-sync.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 等待 Supabase 云端同步完成
+            if (typeof SupabaseSync !== 'undefined') {
+                await SupabaseSync.ready();
+            }
+
+            // === 加载登录界面自定义设置 ===
+            const savedSettings = localStorage.getItem('platform_settings');
+            if (savedSettings) {
+                try {
+                    const s = JSON.parse(savedSettings);
+                    if (s['setting-login-title']) {
+                        document.title = '登录 - ' + s['setting-login-title'];
+                        const titleEl = document.getElementById('login-brand-title');
+                        if (titleEl) titleEl.textContent = s['setting-login-title'];
+                    }
+                    if (s['setting-login-logo']) {
+                        const logoEl = document.getElementById('login-brand-logo');
+                        if (logoEl) logoEl.textContent = s['setting-login-logo'];
+                    }
+                    if (s['setting-login-subtitle']) {
+                        const subEl = document.getElementById('login-brand-subtitle');
+                        if (subEl) subEl.textContent = s['setting-login-subtitle'];
+                    }
+                    if (s['setting-login-welcome']) {
+                        const welEl = document.getElementById('login-welcome-text');
+                        if (welEl) welEl.textContent = s['setting-login-welcome'];
+                    }
+                    if (s['setting-login-bgimage']) {
+                        const leftPanel = document.getElementById('login-left-panel');
+                        if (leftPanel) leftPanel.style.background = `url('${s['setting-login-bgimage']}') center/cover no-repeat`;
+                    }
+                    if (s['setting-login-features']) {
+                        const featEl = document.getElementById('login-brand-features');
+                        if (featEl) {
+                            const lines = s['setting-login-features'].split('\n').filter(l => l.trim());
+                            featEl.innerHTML = lines.map(l => `<li>${l.trim()}</li>`).join('');
+                        }
+                    }
+                    if (s['setting-login-emp-hint']) {
+                        const empHintEl = document.getElementById('emp-login-hint');
+                        if (empHintEl) empHintEl.querySelector('p').textContent = s['setting-login-emp-hint'];
+                    }
+                    if (s['setting-login-admin-hint']) {
+                        const adminHintEl = document.getElementById('admin-login-hint');
+                        if (adminHintEl) adminHintEl.querySelector('p').textContent = s['setting-login-admin-hint'];
+                    }
+                } catch (e) { /* ignore parse errors */ }
+            }
+
+            // 已登录则跳转主页
+            if (Auth.getCurrentUser()) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Tab 切换
+            document.querySelectorAll('.login-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.login-form').forEach(f => f.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab + '-form').classList.add('active');
+                    // 清除错误提示
+                    document.querySelectorAll('.login-error').forEach(e => e.textContent = '');
+                });
+            });
+
+            // 密码显示/隐藏
+            document.querySelectorAll('.toggle-password').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = document.getElementById(btn.dataset.target);
+                    target.type = target.type === 'password' ? 'text' : 'password';
+                });
+            });
+
+            // 员工登录提交
+            document.getElementById('employee-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const account = document.getElementById('emp-account').value.trim();
+                const password = document.getElementById('emp-password').value;
+                const errorEl = document.getElementById('emp-error');
+
+                if (!account || !password) {
+                    errorEl.textContent = '请输入账号和密码';
+                    return;
+                }
+
+                const result = Auth.login(account, password, 'employee');
+                if (result.success) {
+                    showLoginToast('登录成功，正在跳转...', 'success');
+                    setTimeout(() => { window.location.href = 'index.html'; }, 800);
+                } else {
+                    errorEl.textContent = result.message;
+                }
+            });
+
+            // 管理员登录提交
+            document.getElementById('admin-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const account = document.getElementById('admin-account').value.trim();
+                const password = document.getElementById('admin-password').value;
+                const errorEl = document.getElementById('admin-error');
+
+                if (!account || !password) {
+                    errorEl.textContent = '请输入账号和密码';
+                    return;
+                }
+
+                const result = Auth.login(account, password, 'admin');
+                if (result.success) {
+                    showLoginToast('登录成功，正在跳转...', 'success');
+                    setTimeout(() => { window.location.href = 'index.html'; }, 800);
+                } else {
+                    errorEl.textContent = result.message;
+                }
+            });
+
+            function showLoginToast(message, type) {
+                const toast = document.getElementById('login-toast');
+                toast.textContent = message;
+                toast.className = 'login-toast show ' + type;
+                setTimeout(() => { toast.className = 'login-toast'; }, 2500);
+            }
+        });
+    </script>
+</body>
+</html>

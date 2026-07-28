@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代运营数字化平台</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
+<script>
+(function(){
+  try{
+    var beacon=new BeaconAction({
+      appkey:'0WEB06U85YBSLJNL',
+      versionCode:'1.0.0',
+      channelID:'share',
+      delay:1000,
+      sessionDuration:30*60*1000,
+      isOversea:false,
+      needReportRqdEvent:false
+    });
+    beacon.onDirectUserAction('preview_page_view',{
+      'url':location.href,
+      'referrer':document.referrer,
+      'title':document.title,
+      'sandbox_id':'c0f48b6cfa6341a2aed71435bfccd584'
+    });
+  }catch(e){}
+})();
+</script></head>
+<body>
+    <!-- ====== 侧边导航栏 ====== -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-icon">OP</div>
+            <span class="logo-text">代运营数字化平台</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-view="dashboard">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                <span>数据仪表板</span>
+            </a>
+            <a href="#" class="nav-item" data-view="tencent-docs">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                <span>文案库</span>
+            </a>
+            <a href="#" class="nav-item" data-view="clip-worksheet">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                <span>剪辑工作表</span>
+            </a>
+            <a href="#" class="nav-item" data-view="my-requests">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+                <span>我的申请</span>
+            </a>
+            <a href="#" class="nav-item" data-view="video-downloader">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <span>视频解析下载</span>
+            </a>
+            <a href="#" class="nav-item" data-view="copy-downloader">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>文案解析下载</span>
+            </a>
+            <a href="#" class="nav-item" data-view="auto-browser">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>自动化浏览器</span>
+            </a>
+            <a href="#" class="nav-item" data-view="salary">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span>工资管理</span>
+            </a>
+            <a href="#" class="nav-item nav-admin-only" data-view="employee">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>员工管理</span>
+            </a>
+            <a href="#" class="nav-item nav-admin-only" data-view="sub-account">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
+                <span>子账号管理</span>
+            </a>
+            <a href="#" class="nav-item" data-view="folder-manager">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><polyline points="9 13 12 10 15 13"/><line x1="12" y1="10" x2="12" y2="16"/></svg>
+                <span>子账号文件夹管理</span>
+            </a>
+            <a href="#" class="nav-item nav-admin-only" data-view="video-monitor">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="9 10 12 7 15 10"/></svg>
+                <span>视频数据监控</span>
+            </a>
+            <a href="#" class="nav-item nav-admin-only" data-view="copy-monitor">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><polyline points="9 10 12 7 15 10"/></svg>
+                <span>文案监控</span>
+            </a>
+            <a href="#" class="nav-item nav-admin-only" data-view="app-management">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                <span>应用管理</span>
+            </a>
+            <a href="#" class="nav-item" data-view="short-video-alert">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span>短视频预警</span>
+            </a>
+            <a href="#" class="nav-item" data-view="apps">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>常用应用</span>
+            </a>
+            <a href="#" class="nav-item" data-view="leave">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>请假申请</span>
+            </a>
+            <a href="#" class="nav-item" data-view="meal">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2"/><path d="M5 2v20"/><path d="M19 2v20"/><path d="M17 2v7c0 1.1.9 2 2 2h0a2 2 0 0 0 2-2V2"/></svg>
+                <span>每日报餐</span>
+            </a>
+            <a href="#" class="nav-item nav-admin-only" data-view="settings">
+                <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>设置</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-badge">
+                <div class="user-avatar" id="user-avatar">管</div>
+                <div class="user-meta">
+                    <span class="user-name"><span id="user-name-text">管理员</span><span class="user-name-sep" id="user-name-sep">—</span><span class="user-position" id="user-position">超级管理员</span></span>
+                    <span class="user-role" id="user-role">超级管理员</span>
+                </div>
+            </div>
+            <button class="btn-logout" id="logout-btn" onclick="if(confirm('确定要退出登录吗？')){ if(typeof Auth!=='undefined'&&Auth.logout){Auth.logout();}else{localStorage.removeItem('platform_session');window.location.href='login.html';} }">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                <span>退出登录</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ====== 主内容区 ====== -->
+    <main class="main-content">
+        <header class="content-header">
+            <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+            <h2 class="page-title" id="page-title">数据查看仪表板</h2>
+            <div class="header-right">
+                <span id="sync-status" class="sync-status" title="数据同步状态"></span>
+                <span class="header-date" id="header-date"></span>
+                <!-- 消息通知 -->
+                <div class="notification-wrapper">
+                    <button class="notification-bell-btn" id="notification-bell-btn" title="消息通知">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span class="notification-badge" id="notification-badge" style="display:none;">0</span>
+                    </button>
+                    <div class="notification-panel" id="notification-panel">
+                        <div class="notification-panel-header">
+                            <span class="notification-panel-title">消息通知</span>
+                            <button class="notification-panel-close" id="notification-panel-close">&times;</button>
+                        </div>
+                        <div class="notification-list" id="notification-list">
+                            <div class="notif-empty">暂无消息通知</div>
+                        </div>
+                        <div class="notification-panel-footer">
+                            <button class="btn btn-sm btn-outline" id="notification-clear-btn">全部已读</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- ========== 视图1: 数据仪表板 ========== -->
+            <section id="view-dashboard" class="view active">
+                <!-- 统计卡片 -->
+                <div class="stat-cards" id="stat-cards">
+                    <div class="stat-card stat-blue">
+                        <div class="stat-icon">&#128221;</div>
+                        <div class="stat-info">
+                            <span class="stat-label">文案总数量</span>
+                            <span class="stat-value" id="stat-copy-total">--</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-green">
+                        <div class="stat-icon">&#128230;</div>
+                        <div class="stat-info">
+                            <span class="stat-label">文案剩余数量</span>
+                            <span class="stat-value" id="stat-copy-remaining">--</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-purple">
+                        <div class="stat-icon">&#127909;</div>
+                        <div class="stat-info">
+                            <span class="stat-label">视频总数量</span>
+                            <span class="stat-value" id="stat-video-total">--</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-orange stat-clickable" id="stat-video-remaining-card">
+                        <div class="stat-icon">&#128193;</div>
+                        <div class="stat-info">
+                            <span class="stat-label">视频剩余数量</span>
+                            <span class="stat-value" id="stat-video-remaining">--</span>
+                            <span class="stat-hint">点击打开本地文件夹</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 管理员专属统计卡片 -->
+                <div class="stat-cards stat-cards-admin nav-admin-only" style="display:none;">
+                    <div class="stat-card stat-red">
+                        <div class="stat-icon">&#128176;</div>
+                        <div class="stat-info">
+                            <span class="stat-label">员工工资总额</span>
+                            <span class="stat-value" id="stat-salary-total">--</span>
+                        </div>
+                    </div>
+                    <div class="stat-card stat-teal">
+                        <div class="stat-icon">&#128202;</div>
+                        <div class="stat-info">
+                            <span class="stat-label">运营成本</span>
+                            <span class="stat-value" id="stat-operating-cost">--</span>
+                            <span class="stat-hint">含工资 + 平台费 + 工具 + 广告</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 筛选栏 -->
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label class="filter-label">子账号筛选：</label>
+                        <select id="sub-account-filter" class="form-select">
+                            <option value="all">全部子账号</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">时间范围：</label>
+                        <select id="time-range-filter" class="form-select">
+                            <option value="7">近7天</option>
+                            <option value="30" selected>近30天</option>
+                            <option value="90">近90天</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="refresh-dashboard">刷新数据</button>
+                </div>
+
+                <!-- 图表区域 -->
+                <div class="charts-grid">
+                    <div class="chart-card chart-large">
+                        <div class="chart-header">
+                            <h3>内容产出趋势</h3>
+                            <span class="chart-badge">月度</span>
+                        </div>
+                        <div class="chart-body"><canvas id="line-chart"></canvas></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>内容类型分布</h3>
+                        </div>
+                        <div class="chart-body"><canvas id="pie-chart"></canvas></div>
+                    </div>
+                    <div class="chart-card chart-large">
+                        <div class="chart-header">
+                            <h3>子账号数据对比</h3>
+                        </div>
+                        <div class="chart-body"><canvas id="bar-chart"></canvas></div>
+                    </div>
+                    <div class="chart-card chart-large">
+                        <div class="chart-header">
+                            <h3>文案/视频剩余趋势</h3>
+                            <span class="chart-badge">子账号</span>
+                        </div>
+                        <div class="chart-body"><canvas id="remaining-chart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- 数据表格 -->
+                <div class="data-table-card">
+                    <div class="table-header">
+                        <h3>详细数据列表</h3>
+                        <button class="btn btn-sm btn-outline" id="export-table-btn">导出Excel</button>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>子账号名称</th>
+                                    <th>文案总数</th>
+                                    <th>文案剩余</th>
+                                    <th>视频总数</th>
+                                    <th>视频剩余</th>
+                                    <th>完成率</th>
+                                    <th>状态</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图2: 文案库 ========== -->
+            <section id="view-tencent-docs" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3 id="copy-library-title">文案库</h3>
+                        <p class="module-desc" id="copy-library-desc">管理文案排期：发布时期、子账号、分类、标题、文案、剪辑人、是否发布、备注等</p>
+                        <div class="copy-library-toolbar">
+                            <button class="btn btn-primary btn-sm" id="copy-add-btn">+ 新增文案</button>
+                            <button class="btn btn-outline btn-sm" id="copy-batch-btn">批量添加</button>
+                            <button class="btn btn-outline btn-sm" id="copy-filter-toggle-btn">筛选</button>
+                            <button class="btn btn-outline btn-sm" id="copy-export-btn">导出Excel</button>
+                            <button class="btn btn-outline btn-sm" id="copy-daily-report-btn">每日报告</button>
+                            <button class="btn btn-outline btn-sm" id="copy-batch-delete-btn">批量删除</button>
+                            <button class="btn btn-outline btn-sm" id="copy-filter-config-btn" style="display:none;">⚙ 筛选选项配置</button>
+                            <div class="copy-library-summary">
+                                <span>共 <strong id="copy-count">0</strong> 条文案</span>
+                                <span>已剪辑 <strong id="copy-published-count">0</strong> 条</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 筛选区（点击"筛选"按钮显示） -->
+                    <div class="copy-filter-area" id="copy-filter-area" style="display:none;">
+                        <div class="copy-filter-grid" id="copy-filter-grid">
+                            <!-- JS 动态生成每个表头的筛选框 -->
+                        </div>
+                        <div class="copy-filter-actions">
+                            <button class="btn btn-primary btn-sm" id="copy-filter-apply-btn">应用筛选</button>
+                            <button class="btn btn-outline btn-sm" id="copy-filter-reset-btn">重置</button>
+                        </div>
+                    </div>
+
+                    <!-- 文案库表格 -->
+                    <div class="table-wrapper">
+                        <table class="data-table copy-library-table" id="copy-library-table">
+                            <thead id="copy-library-thead">
+                                <!-- JS 动态生成表头 -->
+                            </thead>
+                            <tbody id="copy-library-tbody">
+                                <!-- JS 动态生成内容 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 新增/编辑文案 弹窗 -->
+                <div class="copy-form-modal" id="copy-form-modal" style="display:none;">
+                    <div class="copy-form-modal-content">
+                        <div class="copy-form-modal-header">
+                            <h4 id="copy-form-title">新增文案</h4>
+                            <button class="copy-form-modal-close" id="copy-form-close-btn">×</button>
+                        </div>
+                        <div class="copy-form-body">
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label>发布时期 <span class="required">*</span></label>
+                                    <input type="date" class="form-input" id="copy-form-publish-date" />
+                                </div>
+                                <div class="form-group">
+                                    <label>星期</label>
+                                    <input type="text" class="form-input" id="copy-form-day-of-week" readonly placeholder="自动计算" />
+                                </div>
+                                <div class="form-group">
+                                    <label>子账号 <span class="required">*</span></label>
+                                    <select class="form-select" id="copy-form-sub-account">
+                                        <option value="">请选择子账号</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>分类 <span class="required">*</span></label>
+                                    <select class="form-select" id="copy-form-category">
+                                        <option value="">请选择分类</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label>标题 <span class="required">*</span></label>
+                                    <input type="text" class="form-input" id="copy-form-title-input" placeholder="请输入文案标题" />
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label>对标链接</label>
+                                    <input type="text" class="form-input" id="copy-form-benchmark" placeholder="请输入对标视频/文案链接" />
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label>文案内容 <span class="required">*</span></label>
+                                    <textarea class="form-input" id="copy-form-content" rows="6" placeholder="请输入文案内容"></textarea>
+                                </div>
+                                <div class="form-group" style="display:none;">
+                                    <label>剪辑人</label>
+                                    <input type="text" class="form-input" id="copy-form-editor" placeholder="请输入剪辑人" />
+                                </div>
+                                <div class="form-group">
+                                    <label>是否发布</label>
+                                    <select class="form-select" id="copy-form-is-published">
+                                        <option value="false">未发布</option>
+                                        <option value="true">已发布</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label>备注</label>
+                                    <textarea class="form-input" id="copy-form-remark" rows="2" placeholder="可选备注"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copy-form-modal-footer">
+                            <button class="btn btn-primary" id="copy-form-save-btn">保存</button>
+                            <button class="btn btn-outline" id="copy-form-cancel-btn">取消</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 筛选选项配置 弹窗（管理员） -->
+                <div class="copy-form-modal" id="copy-filter-config-modal" style="display:none;">
+                    <div class="copy-form-modal-content" style="max-width:720px;">
+                        <div class="copy-form-modal-header">
+                            <h4>筛选选项配置</h4>
+                            <button class="copy-form-modal-close" id="copy-filter-config-close-btn">×</button>
+                        </div>
+                        <div class="copy-form-body">
+                            <p class="form-hint" style="margin-bottom:16px;">为各表头的筛选下拉框设置可选值，保存后员工端将同步使用。子账号、剪辑人可自动从已有数据中提取。</p>
+                            <div class="form-group">
+                                <label>分类选项（每行一个）</label>
+                                <textarea class="form-input" id="copy-config-category" rows="6" placeholder="种草&#10;测评&#10;教程&#10;..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>是否发布选项（每行一个）</label>
+                                <textarea class="form-input" id="copy-config-is-published" rows="3" placeholder="已发布&#10;未发布"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>剪辑人选项（每行一个）</label>
+                                <textarea class="form-input" id="copy-config-editor" rows="6" placeholder="张三&#10;李四&#10;..."></textarea>
+                            </div>
+                        </div>
+                        <div class="copy-form-modal-footer">
+                            <button class="btn btn-primary" id="copy-filter-config-save-btn">保存配置</button>
+                            <button class="btn btn-outline" id="copy-filter-config-cancel-btn">取消</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 批量添加文案 弹窗 -->
+                <div class="copy-form-modal" id="copy-batch-modal" style="display:none;">
+                    <div class="copy-form-modal-content" style="max-width:720px;">
+                        <div class="copy-form-modal-header">
+                            <h4>批量添加文案</h4>
+                            <button class="copy-form-modal-close" id="copy-batch-close-btn">×</button>
+                        </div>
+                        <div class="copy-form-body">
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label>发布时期 <span class="required">*</span></label>
+                                    <input type="date" class="form-input" id="copy-batch-date" />
+                                </div>
+                                <div class="form-group">
+                                    <label>子账号 <span class="required">*</span></label>
+                                    <select class="form-select" id="copy-batch-sub-account">
+                                        <option value="">请选择子账号</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>分类</label>
+                                    <select class="form-select" id="copy-batch-category">
+                                        <option value="">请选择分类</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>是否发布</label>
+                                    <select class="form-select" id="copy-batch-published">
+                                        <option value="false">未发布</option>
+                                        <option value="true">已发布</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label>文案内容 <span class="required">*</span></label>
+                                <p class="form-hint">每行一条文案，格式：<strong>标题 | 文案内容</strong>（用竖线分隔标题和内容，无竖线则标题即内容）</p>
+                                <textarea class="form-input" id="copy-batch-content" rows="12" placeholder="示例：&#10;夏季防晒推荐 | 姐妹们夏天来了，防晒真的很重要...&#10;美白精华测评 | 这款精华真的好用，回购了三次...&#10;周末探店合集 | 今天去了三家店，每家都超赞..."></textarea>
+                            </div>
+                        </div>
+                        <div class="copy-form-modal-footer">
+                            <button class="btn btn-primary" id="copy-batch-save-btn">批量添加</button>
+                            <button class="btn btn-outline" id="copy-batch-cancel-btn">取消</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 申请帮剪/帮写 弹窗 -->
+                <div class="copy-form-modal" id="copy-request-modal" style="display:none;">
+                    <div class="copy-form-modal-content" style="max-width:640px;">
+                        <div class="copy-form-modal-header">
+                            <h4>发起申请</h4>
+                            <button class="copy-form-modal-close" id="copy-request-close-btn">×</button>
+                        </div>
+                        <div class="copy-form-body">
+                            <p class="form-hint" style="margin-bottom:16px;">向对应岗位的同事发起帮剪 / 帮写申请，对方同意后即可协作。</p>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label>申请类型 <span class="required">*</span></label>
+                                    <select class="form-select" id="copy-request-type">
+                                        <option value="">请选择申请类型</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>子账号 <span class="required">*</span></label>
+                                    <select class="form-select" id="copy-request-sub-account">
+                                        <option value="">请选择子账号</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label>具体文案（可选）</label>
+                                    <select class="form-select" id="copy-request-copy">
+                                        <option value="">（可选）选择具体文案</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label>申请员工 <span class="required">*</span></label>
+                                    <select class="form-select" id="copy-request-target">
+                                        <option value="">请先选择申请类型</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-group-full">
+                                    <label>留言</label>
+                                    <textarea class="form-input" id="copy-request-message" rows="3" placeholder="可选，给对方的说明"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copy-form-modal-footer">
+                            <button class="btn btn-primary" id="copy-request-save-btn">提交申请</button>
+                            <button class="btn btn-outline" id="copy-request-cancel-btn">取消</button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ========== 视图: 剪辑工作表（独立模块） ========== -->
+            <section id="view-clip-worksheet" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>剪辑工作表</h3>
+                        <p class="module-desc">按月记录每日剪辑产量（时长分布与子账号分布），系统自动计算求和并对账</p>
+                    </div>
+                    <div id="clip-ws-stats" class="ws-stats-grid"></div>
+                    <div class="copy-library-toolbar" style="margin-bottom:14px;">
+                        <button class="btn btn-outline btn-sm" id="clip-ws-prev-month">← 上月</button>
+                        <span id="clip-ws-month-label" style="margin:0 10px;font-weight:600;"></span>
+                        <button class="btn btn-outline btn-sm" id="clip-ws-next-month">下月 →</button>
+                        <button class="btn btn-outline btn-sm" id="clip-ws-export-btn" style="margin-left:12px;">导出Excel</button>
+                        <span id="clip-ws-reconcile-hint" style="margin-left:12px;"></span>
+                    </div>
+                    <div class="table-wrapper" id="clip-worksheet-container"></div>
+                </div>
+            </section>
+
+            <!-- ========== 视图: 我的申请（独立模块） ========== -->
+            <section id="view-my-requests" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>我的申请</h3>
+                        <p class="module-desc">查看帮剪 / 帮写申请记录，处理待办申请</p>
+                    </div>
+                    <div class="copy-req-filter-tabs">
+                        <button class="copy-req-filter-tab active" data-filter="all">全部</button>
+                        <button class="copy-req-filter-tab" data-filter="pending">待处理</button>
+                        <button class="copy-req-filter-tab" data-filter="handled">已处理</button>
+                        <button class="btn btn-outline btn-sm" id="copy-req-batch-delete-btn" disabled>批量删除 (0)</button>
+                    </div>
+                    <div id="copy-request-list"></div>
+                </div>
+            </section>
+
+            <section id="view-video-downloader" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>视频解析下载器</h3>
+                        <p class="module-desc">支持小红书、抖音、哔哩哔哩视频链接解析与下载</p>
+                    </div>
+                    <!-- 平台选择 -->
+                    <div class="platform-tabs" id="platform-tabs">
+                        <button class="platform-tab active" data-platform="xiaohongshu">
+                            <span class="platform-icon" style="color:#ff2442;">小红书</span>
+                        </button>
+                        <button class="platform-tab" data-platform="douyin">
+                            <span class="platform-icon" style="color:#000;">抖音</span>
+                        </button>
+                        <button class="platform-tab" data-platform="bilibili">
+                            <span class="platform-icon" style="color:#00a1d6;">哔哩哔哩</span>
+                        </button>
+                    </div>
+                    <!-- 链接输入 -->
+                    <div class="link-input-bar">
+                        <input type="text" class="form-input" id="video-url-input" placeholder="粘贴视频链接地址..." />
+                        <button class="btn btn-primary" id="parse-video-btn">解析</button>
+                        <button class="btn btn-success" id="download-video-btn" disabled>下载</button>
+                    </div>
+                    <!-- 解析结果 -->
+                    <div class="parse-result" id="video-parse-result" style="display:none;">
+                        <div class="parse-info">
+                            <div class="parse-thumbnail">&#127909;</div>
+                            <div class="parse-details">
+                                <h4 id="video-title">--</h4>
+                                <p>作者：<span id="video-author">--</span></p>
+                                <p>时长：<span id="video-duration">--</span></p>
+                                <p>分辨率：<span id="video-resolution">--</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 下载历史 -->
+                    <div class="history-section">
+                        <h4>下载历史</h4>
+                        <div class="table-wrapper">
+                            <table class="data-table" id="video-history-table">
+                                <thead>
+                                    <tr><th>平台</th><th>视频标题</th><th>下载时间</th><th>状态</th><th>操作</th></tr>
+                                </thead>
+                                <tbody id="video-history-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图4: 文案解析下载器 ========== -->
+            <section id="view-copy-downloader" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>文案解析下载器</h3>
+                        <p class="module-desc">解析小红书/抖音/公众号等平台文案内容并下载</p>
+                    </div>
+                    <div class="link-input-bar">
+                        <input type="text" class="form-input" id="copy-url-input" placeholder="粘贴文案链接地址..." />
+                        <button class="btn btn-primary" id="parse-copy-btn">解析文案</button>
+                        <button class="btn btn-success" id="download-copy-btn" disabled>下载文案</button>
+                    </div>
+                    <div class="copy-result-area" id="copy-result-area" style="display:none;">
+                        <div class="copy-result-header">
+                            <h4 id="copy-title">--</h4>
+                            <span class="badge" id="copy-platform-badge">--</span>
+                        </div>
+                        <div class="copy-content-box" id="copy-content-box">--</div>
+                        <div class="copy-meta">
+                            <span>字数：<span id="copy-word-count">0</span></span>
+                            <span>作者：<span id="copy-author">--</span></span>
+                            <span>发布时间：<span id="copy-date">--</span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图5: 自动化浏览器 ========== -->
+            <section id="view-auto-browser" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>内嵌自动化浏览器</h3>
+                        <p class="module-desc">自动化点击、表单填写、页面操作等自动化任务</p>
+                    </div>
+                    <div class="browser-toolbar">
+                        <div class="browser-url-bar">
+                            <button class="browser-btn" id="browser-back" title="后退">&#8592;</button>
+                            <button class="browser-btn" id="browser-forward" title="前进">&#8594;</button>
+                            <button class="browser-btn" id="browser-refresh" title="刷新">&#8635;</button>
+                            <input type="text" class="form-input browser-url-input" id="browser-url" placeholder="输入网址..." value="https://www.baidu.com" />
+                            <button class="browser-btn browser-go" id="browser-go">前往</button>
+                        </div>
+                    </div>
+                    <div class="browser-layout">
+                        <!-- 浏览器视图 -->
+                        <div class="browser-frame">
+                            <iframe id="browser-iframe" src="about:blank" class="browser-iframe"></iframe>
+                            <div class="browser-blocked-notice" id="browser-blocked-notice">
+                                <div class="blocked-icon">&#128680;</div>
+                                <p>部分网站可能因安全策略限制内嵌显示</p>
+                                <span>实际部署时需配置后端代理或使用浏览器自动化工具（如 Puppeteer/Playwright）</span>
+                            </div>
+                        </div>
+                        <!-- 自动化脚本编辑器 -->
+                        <div class="automation-panel">
+                            <div class="panel-header">
+                                <h4>自动化脚本</h4>
+                                <div class="panel-actions">
+                                    <button class="btn btn-sm btn-primary" id="run-automation">运行</button>
+                                    <button class="btn btn-sm btn-outline" id="stop-automation">停止</button>
+                                </div>
+                            </div>
+                            <textarea class="script-editor" id="script-editor" placeholder="// 输入自动化脚本...&#10;// 示例：&#10;// 1. 打开页面&#10;// 2. 点击按钮&#10;// 3. 填写表单&#10;navigate('https://www.baidu.com');&#10;click('#search-input');&#10;type('代运营平台');&#10;click('#search-btn');&#10;wait(2000);&#10;screenshot();"></textarea>
+                            <div class="console-output" id="console-output">
+                                <div class="console-line console-info">[系统] 自动化浏览器就绪。点击"运行"执行脚本。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图6: 工资管理/工资明细 ========== -->
+            <section id="view-salary" class="view">
+
+                <!-- ===== 管理员视图 ===== -->
+                <div id="salary-admin-content">
+                    <div class="module-card">
+                        <div class="module-header">
+                            <h3>工资管理</h3>
+                            <p class="module-desc">设置员工工资、自定义绩效项名称、保存历史工资明细</p>
+                        </div>
+
+                        <!-- 绩效项名称配置 -->
+                        <div class="cost-section" style="margin-bottom:20px;">
+                            <div class="sub-section-header">
+                                <h4>绩效项名称设置</h4>
+                                <span class="chart-badge">修改后员工端同步更新</span>
+                            </div>
+                            <p class="form-hint" style="margin-bottom:12px;">可自定义每个工资项的名称，员工页面将同步显示新名称</p>
+                            <div class="field-config-list" id="field-config-list"></div>
+                            <div class="form-actions" style="margin-top:12px;">
+                                <button class="btn btn-primary btn-sm" id="save-field-config-btn">保存名称修改</button>
+                            </div>
+                        </div>
+
+                        <!-- 剪辑员工工资管理（剪辑工作表配置） -->
+                        <div class="cost-section" style="margin-top:20px;">
+                            <div class="sub-section-header">
+                                <h4>剪辑员工工资管理</h4>
+                                <span class="chart-badge">剪辑工作表设置</span>
+                            </div>
+                            <p class="form-hint" style="margin-bottom:12px;">设置每个时间段的基数（员工填写的数量 × 基数 = 今日剪辑数），以及员工端的每日工作量参考值</p>
+                            <div class="form-group" style="max-width:200px;margin-bottom:12px;">
+                                <label>每日工作量</label>
+                                <input type="number" class="form-input" id="clip-ws-daily-workload" step="0.01" />
+                            </div>
+                            <div id="clip-ws-duration-list" style="margin-bottom:12px;"></div>
+                            <div class="form-actions" style="margin-top:12px;">
+                            <button class="btn btn-outline btn-sm" id="clip-ws-add-duration">+ 添加时间段</button>
+                            <button class="btn btn-primary btn-sm" id="clip-ws-save">保存配置</button>
+                        </div>
+                    </div>
+
+                    <!-- 子账号绩效基数配置 -->
+                    <div class="cost-section" style="margin-top:20px;">
+                        <div class="sub-section-header">
+                            <h4>子账号绩效基数配置</h4>
+                            <span class="chart-badge">询盘绩效 + 爆款绩效</span>
+                        </div>
+                        <p class="form-hint" style="margin-bottom:12px;">设置每个子账号的留资数最大值、最小值、金额，以及爆款视频的播放量阈值与奖励金额</p>
+                        <h5 style="margin:16px 0 8px;font-size:15px;font-weight:600;">询盘绩效（留资数）</h5>
+                        <div id="inquiry-config-list"></div>
+                        <h5 style="margin:16px 0 8px;font-size:15px;font-weight:600;">爆款绩效（播放量阈值）</h5>
+                        <div id="viral-config-list"></div>
+                        <div style="margin-top:8px;">
+                            <button class="btn btn-outline btn-sm" id="add-viral-tier-btn">+ 添加阈值</button>
+                        </div>
+                        <div class="form-actions" style="margin-top:12px;">
+                            <button class="btn btn-primary btn-sm" id="save-subaccount-salary-config-btn">保存绩效配置</button>
+                        </div>
+                    </div>
+
+                    <!-- 工资表 -->
+                        <div class="salary-toolbar">
+                            <button class="btn btn-primary btn-sm" id="add-salary-row">+ 添加人员</button>
+                            <button class="btn btn-outline btn-sm" id="export-salary-btn">导出Excel</button>
+                            <button class="btn btn-success btn-sm" id="save-snapshot-btn">保存本月工资明细</button>
+                            <div class="salary-summary">
+                                <span>总人数：<strong id="salary-count">0</strong></span>
+                                <span>工资总计：<strong id="salary-total">0.00</strong></span>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table salary-table" id="salary-table">
+                                <thead>
+                                    <tr><th>姓名</th><th>岗位</th><th>—</th><th>—</th><th>—</th><th>—</th><th>—</th><th>实发工资</th><th>操作</th></tr>
+                                </thead>
+                                <tbody id="salary-table-body"></tbody>
+                            </table>
+                        </div>
+
+                    <!-- 运营成本管理（与工资互通） -->
+                    <div class="cost-section">
+                        <div class="sub-section-header">
+                            <h4>运营成本管理</h4>
+                            <span class="chart-badge">与员工工资互通</span>
+                        </div>
+                        <div class="salary-toolbar">
+                            <button class="btn btn-primary btn-sm" id="add-cost-item-btn">+ 添加成本项</button>
+                            <div class="salary-summary">
+                                <span>成本项：<strong id="cost-item-count">0</strong></span>
+                                <span>成本小计：<strong id="cost-items-total">¥0.00</strong></span>
+                                <span>员工工资：<strong id="cost-salary-total">¥0.00</strong></span>
+                                <span>运营总成本：<strong id="cost-grand-total" style="color:#ef4444;">¥0.00</strong></span>
+                            </div>
+                        </div>
+
+                        <!-- 成本项表单 -->
+                        <div class="employee-form-area" id="cost-form-area" style="display:none;">
+                            <h4 id="cost-form-title">添加运营成本项</h4>
+                            <div class="form-grid-3">
+                                <div class="form-group">
+                                    <label>成本名称 <span class="required">*</span></label>
+                                    <input type="text" class="form-input" id="cost-form-name" placeholder="如：平台会员费" />
+                                </div>
+                                <div class="form-group">
+                                    <label>分类 <span class="required">*</span></label>
+                                    <input type="text" class="form-input" id="cost-form-category" placeholder="如：平台费用" />
+                                </div>
+                                <div class="form-group">
+                                    <label>金额（元）</label>
+                                    <input type="number" class="form-input" id="cost-form-amount" value="0" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>备注</label>
+                                <input type="text" class="form-input" id="cost-form-remark" placeholder="可选备注说明" />
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" id="save-cost-item-btn">保存</button>
+                                <button class="btn btn-outline" id="cancel-cost-item-btn">取消</button>
+                            </div>
+                        </div>
+
+                        <!-- 成本项表格 -->
+                        <div class="table-wrapper">
+                            <table class="data-table" id="cost-table">
+                                <thead>
+                                    <tr>
+                                        <th>成本名称</th>
+                                        <th>分类</th>
+                                        <th>金额</th>
+                                        <th>备注</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cost-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 工资历史快照 -->
+                    <div class="cost-section" style="margin-top:20px;">
+                        <div class="sub-section-header">
+                            <h4>历史工资明细</h4>
+                            <span class="chart-badge">自动保存/手动保存</span>
+                        </div>
+                        <p class="form-hint" style="margin-bottom:12px;">点击历史记录可加载该月工资明细，当前数据将被替换</p>
+                        <div class="history-list" id="salary-history-list"></div>
+                    </div>
+                </div>
+                </div>
+
+                <!-- ===== 员工视图：三栏布局 ===== -->
+                <div id="salary-employee-content" style="display:none;">
+                    <div class="module-card">
+                        <div class="module-header">
+                            <h3>工资明细</h3>
+                            <p class="module-desc">查看工资构成详情（只读）</p>
+                        </div>
+                        <div class="salary-emp-layout">
+                            <!-- 第一栏：汇总 + 导出 + 历史 -->
+                            <div class="salary-emp-col1">
+                                <div class="emp-summary-card">
+                                    <span class="emp-summary-label">工资总额</span>
+                                    <strong class="emp-summary-value" id="emp-salary-total">¥0.00</strong>
+                                    <span class="emp-summary-sub" id="emp-salary-count">0 人</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm emp-action-btn" id="emp-export-salary-btn">导出工资表</button>
+                                <button class="btn btn-success btn-sm emp-action-btn" id="emp-save-snapshot-btn">保存本月明细</button>
+                                <div class="emp-history-section">
+                                    <h5>历史工资明细</h5>
+                                    <div class="history-list" id="emp-salary-history"></div>
+                                </div>
+                            </div>
+
+                            <!-- 第二栏：姓名列表 -->
+                            <div class="salary-emp-col2" id="emp-salary-list"></div>
+
+                            <!-- 第三栏：工资构成详情 -->
+                            <div class="salary-emp-col3" id="emp-salary-detail"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ========== 视图7: 员工管理（管理员专用） ========== -->
+            <section id="view-employee" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>员工管理</h3>
+                        <p class="module-desc">管理员工账号、分配子账号、设置权限</p>
+                    </div>
+                    <div class="salary-toolbar">
+                        <div class="employee-toolbar-left">
+                            <button class="btn btn-primary btn-sm" id="add-employee-btn">+ 添加员工</button>
+                            <button class="btn btn-outline btn-sm" id="manage-positions-btn">⚙ 岗位管理</button>
+                        </div>
+                        <div class="salary-summary">
+                            <span>总员工数：<strong id="employee-count">0</strong></span>
+                            <span>活跃账号：<strong id="employee-active-count">0</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- 岗位管理区域 -->
+                    <div class="employee-form-area" id="positions-management-area" style="display:none;">
+                        <h4>岗位管理</h4>
+                        <div class="positions-add-bar">
+                            <input type="text" class="form-input" id="new-position-name" placeholder="输入岗位名称，如：剪辑" />
+                            <button class="btn btn-primary btn-sm" id="add-position-btn">添加岗位</button>
+                        </div>
+                        <div class="positions-list" id="positions-list"></div>
+                        <div class="form-actions">
+                            <button class="btn btn-outline" id="close-positions-btn">关闭</button>
+                        </div>
+                    </div>
+
+                    <!-- 添加/编辑表单 -->
+                    <div class="employee-form-area" id="employee-form-area" style="display:none;">
+                        <h4 id="employee-form-title">添加新员工</h4>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>员工姓名 <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="emp-form-name" placeholder="请输入姓名" />
+                            </div>
+                            <div class="form-group">
+                                <label>登录账号 <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="emp-form-account" placeholder="登录账号" />
+                            </div>
+                            <div class="form-group">
+                                <label>登录密码 <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="emp-form-password" placeholder="登录密码" />
+                            </div>
+                            <div class="form-group">
+                                <label>账号状态</label>
+                                <select class="form-select" id="emp-form-status">
+                                    <option value="active">启用</option>
+                                    <option value="disabled">禁用</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>岗位角色</label>
+                            <p class="form-hint">勾选该员工的岗位角色（点击右侧「岗位管理」可添加新岗位）</p>
+                            <div class="sub-account-checkboxes" id="emp-positions"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>分配子账号</label>
+                            <p class="form-hint">勾选该员工可访问的子账号（同一岗位已被其他员工分配的账号不会显示，不同岗位账号互不占用）</p>
+                            <div class="sub-account-checkboxes" id="emp-sub-accounts"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>功能权限</label>
+                            <p class="form-hint">勾选该员工可使用的功能模块</p>
+                            <div class="sub-account-checkboxes" id="emp-features"></div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="save-employee-btn">保存</button>
+                            <button class="btn btn-outline" id="cancel-employee-btn">取消</button>
+                        </div>
+                    </div>
+
+                    <!-- 员工列表表格 -->
+                    <div class="table-wrapper">
+                        <table class="data-table" id="employee-table">
+                            <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>账号</th>
+                                    <th>密码</th>
+                                    <th>岗位</th>
+                                    <th>分配子账号</th>
+                                    <th>功能权限</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employee-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图8: 子账号管理（管理员专用） ========== -->
+            <section id="view-sub-account" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>子账号管理</h3>
+                        <p class="module-desc">三级分类体系：一级分类 → 二级平台 → 子账号管理</p>
+                    </div>
+                    <div class="salary-toolbar">
+                        <button class="btn btn-primary btn-sm" id="add-subaccount-btn">+ 添加子账号</button>
+                        <div class="salary-summary">
+                            <span>一级分类：<strong id="subaccount-cat1-count">0</strong></span>
+                            <span>二级平台：<strong id="subaccount-cat2-count">0</strong></span>
+                            <span>子账号总数：<strong id="subaccount-count">0</strong></span>
+                            <span>正常：<strong id="subaccount-active-count">0</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- 添加/编辑表单 -->
+                    <div class="employee-form-area" id="subaccount-form-area" style="display:none;">
+                        <h4 id="subaccount-form-title">添加新子账号</h4>
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label>一级分类 <span class="required">*</span></label>
+                                <select class="form-select" id="sub-cat-level1">
+                                    <option value="">请选择一级分类</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>二级分类（平台） <span class="required">*</span></label>
+                                <select class="form-select" id="sub-cat-level2">
+                                    <option value="">请选择二级分类</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>子账号名称 <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="sub-form-name" placeholder="如：美妆精选号" />
+                            </div>
+                        </div>
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label>文案总数量</label>
+                                <input type="number" class="form-input" id="sub-form-copy-total" value="0" />
+                            </div>
+                            <div class="form-group">
+                                <label>文案剩余数量</label>
+                                <input type="number" class="form-input" id="sub-form-copy-remaining" value="0" />
+                            </div>
+                            <div class="form-group">
+                                <label>视频总数量</label>
+                                <input type="number" class="form-input" id="sub-form-video-total" value="0" />
+                            </div>
+                        </div>
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label>视频剩余数量</label>
+                                <input type="number" class="form-input" id="sub-form-video-remaining" value="0" />
+                            </div>
+                            <div class="form-group">
+                                <label>状态</label>
+                                <select class="form-select" id="sub-form-status">
+                                    <option value="active">正常</option>
+                                    <option value="warning">预警</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="save-subaccount-btn">保存</button>
+                            <button class="btn btn-outline" id="cancel-subaccount-btn">取消</button>
+                        </div>
+                    </div>
+
+                    <!-- 分类管理 -->
+                    <div class="cat-mgmt-section">
+                        <div class="sub-section-header">
+                            <h4>分类管理</h4>
+                            <span class="chart-badge">自定义添加/删除分类</span>
+                        </div>
+                        <div class="cat-mgmt-grid">
+                            <!-- 一级分类管理 -->
+                            <div class="cat-mgmt-col">
+                                <div class="cat-mgmt-col-header">
+                                    <h5>一级分类</h5>
+                                </div>
+                                <div class="cat-mgmt-add-bar">
+                                    <input type="text" class="form-input" id="new-cat1-name" placeholder="输入一级分类名称" />
+                                    <button class="btn btn-primary btn-sm" id="add-cat1-btn">添加</button>
+                                </div>
+                                <div class="cat-mgmt-list" id="cat1-list"></div>
+                            </div>
+                            <!-- 二级分类管理 -->
+                            <div class="cat-mgmt-col">
+                                <div class="cat-mgmt-col-header">
+                                    <h5>二级分类</h5>
+                                </div>
+                                <div class="cat-mgmt-add-bar">
+                                    <select class="form-select" id="cat2-parent" style="flex:0 0 120px;">
+                                        <option value="">选择一级</option>
+                                    </select>
+                                    <input type="text" class="form-input" id="new-cat2-name" placeholder="二级分类名称" />
+                                    <button class="btn btn-primary btn-sm" id="add-cat2-btn">添加</button>
+                                </div>
+                                <div class="cat-mgmt-list" id="cat2-list"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 三级分类树形视图 -->
+                    <div class="sub-section-header">
+                        <h4>三级分类树</h4>
+                        <span class="chart-badge">可展开折叠</span>
+                    </div>
+                    <div class="subaccount-tree-view" id="subaccount-tree"></div>
+
+                    <!-- 子账号列表表格 -->
+                    <div class="sub-section-header" style="margin-top:24px;">
+                        <h4>子账号列表</h4>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="subaccount-table">
+                            <thead>
+                                <tr>
+                                    <th>一级分类</th>
+                                    <th>二级分类</th>
+                                    <th>子账号名称</th>
+                                    <th>文案总数</th>
+                                    <th>文案剩余</th>
+                                    <th>视频总数</th>
+                                    <th>视频剩余</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subaccount-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图: 子账号文件夹管理（管理员专用） ========== -->
+            <section id="view-folder-manager" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>子账号文件夹管理</h3>
+                        <p class="module-desc">为每个子账号绑定本地文件夹，实时统计文件夹内视频数量</p>
+                    </div>
+                    <div id="folder-manager-content"></div>
+                </div>
+            </section>
+
+            <!-- ========== 视图10: 视频数据监控（管理员专用） ========== -->
+            <section id="view-video-monitor" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>视频数据监控</h3>
+                        <p class="module-desc">监控各子账号视频存量是否够量，低于预警值自动标红提醒</p>
+                    </div>
+                    <div id="video-monitor-content"></div>
+                </div>
+            </section>
+
+            <!-- ========== 视图11: 文案监控（管理员专用） ========== -->
+            <section id="view-copy-monitor" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>文案监控</h3>
+                        <p class="module-desc">监控各子账号文案存量是否够量，低于预警值自动标红提醒</p>
+                    </div>
+                    <div id="copy-monitor-content"></div>
+                </div>
+            </section>
+
+            <!-- ========== 视图12: 短视频预警（管理员+员工） ========== -->
+            <section id="view-short-video-alert" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>短视频预警</h3>
+                        <p class="module-desc">实时监控短视频发布数据，预警异常账号</p>
+                    </div>
+                    <div id="short-video-alert-content"></div>
+                </div>
+
+                <!-- 短视频预警设置弹窗 -->
+                <div class="copy-form-modal" id="short-video-alert-settings-modal" style="display:none;">
+                    <div class="copy-form-modal-content" style="max-width:560px;">
+                        <div class="copy-form-modal-header">
+                            <h4>预警条件设置</h4>
+                            <button class="copy-form-modal-close" onclick="ShortVideoAlert.closeSettings()">×</button>
+                        </div>
+                        <div class="copy-form-body">
+                            <p class="form-hint" style="margin-bottom:16px;">当指标数值<strong>小于</strong>设定值时触发报警；<strong>大于/等于</strong>设定值时为正常。</p>
+                            <div class="alert-settings-list">
+                                <div class="alert-settings-row">
+                                    <span class="alert-settings-label">播放量</span>
+                                    <select class="form-select" id="alert-settings-views-op">
+                                        <option value="gt">大于</option>
+                                        <option value="eq">等于</option>
+                                        <option value="lt">小于</option>
+                                    </select>
+                                    <input type="number" class="form-input" id="alert-settings-views-value" placeholder="如 1000" />
+                                </div>
+                                <div class="alert-settings-row">
+                                    <span class="alert-settings-label">评论数</span>
+                                    <select class="form-select" id="alert-settings-comments-op">
+                                        <option value="gt">大于</option>
+                                        <option value="eq">等于</option>
+                                        <option value="lt">小于</option>
+                                    </select>
+                                    <input type="number" class="form-input" id="alert-settings-comments-value" placeholder="如 50" />
+                                </div>
+                                <div class="alert-settings-row">
+                                    <span class="alert-settings-label">私信数</span>
+                                    <select class="form-select" id="alert-settings-messages-op">
+                                        <option value="gt">大于</option>
+                                        <option value="eq">等于</option>
+                                        <option value="lt">小于</option>
+                                    </select>
+                                    <input type="number" class="form-input" id="alert-settings-messages-value" placeholder="如 20" />
+                                </div>
+                                <div class="alert-settings-row">
+                                    <span class="alert-settings-label">留资数</span>
+                                    <select class="form-select" id="alert-settings-leads-op">
+                                        <option value="gt">大于</option>
+                                        <option value="eq">等于</option>
+                                        <option value="lt">小于</option>
+                                    </select>
+                                    <input type="number" class="form-input" id="alert-settings-leads-value" placeholder="如 10" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copy-form-modal-footer">
+                            <button class="btn btn-primary" onclick="ShortVideoAlert.saveSettings()">保存设置</button>
+                            <button class="btn btn-outline" onclick="ShortVideoAlert.closeSettings()">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图: 应用管理（管理员专用） ========== -->
+            <section id="view-app-management" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>应用管理</h3>
+                        <p class="module-desc">管理员工的常用应用，新增、修改、删除和分配应用</p>
+                    </div>
+                    <div class="salary-toolbar">
+                        <button class="btn btn-primary btn-sm" id="add-app-btn">+ 添加应用</button>
+                        <div class="salary-summary">
+                            <span>应用总数：<strong id="app-count">0</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- 添加/编辑表单 -->
+                    <div class="employee-form-area" id="app-form-area" style="display:none;">
+                        <h4 id="app-form-title">添加应用</h4>
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label>应用名称 <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="app-form-name" placeholder="如：剪映网页版" />
+                            </div>
+                            <div class="form-group">
+                                <label>应用链接 <span class="required">*</span></label>
+                                <input type="text" class="form-input" id="app-form-url" placeholder="https://www.example.com" />
+                            </div>
+                            <div class="form-group">
+                                <label>应用图标</label>
+                                <input type="text" class="form-input" id="app-form-icon" placeholder="输入emoji，如 🎬" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>分配给员工</label>
+                            <p class="form-hint">勾选可使用该应用的员工</p>
+                            <div class="sub-account-checkboxes" id="app-assign-employees"></div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="save-app-btn">保存</button>
+                            <button class="btn btn-outline" id="cancel-app-btn">取消</button>
+                        </div>
+                    </div>
+
+                    <!-- 应用列表表格 -->
+                    <div class="table-wrapper">
+                        <table class="data-table" id="app-management-table">
+                            <thead>
+                                <tr>
+                                    <th>图标</th>
+                                    <th>应用名称</th>
+                                    <th>应用链接</th>
+                                    <th>分配员工</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="app-management-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图: 常用应用（员工端） ========== -->
+            <section id="view-apps" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>常用应用</h3>
+                        <p class="module-desc">点击应用按钮快速跳转到对应网站</p>
+                    </div>
+                    <div class="apps-grid" id="apps-grid"></div>
+                </div>
+            </section>
+
+            <!-- ========== 视图9: 设置 ========== -->
+            <section id="view-settings" class="view">
+                <div class="module-card">
+                    <div class="module-header">
+                        <h3>平台设置</h3>
+                        <p class="module-desc">配置各功能模块的API接口和系统参数</p>
+                    </div>
+                    <div class="settings-grid">
+                        <!-- 腾讯文档API -->
+                        <div class="setting-card">
+                            <h4>腾讯文档接口</h4>
+                            <div class="form-group">
+                                <label>API Key</label>
+                                <input type="password" class="form-input" id="setting-tencent-key" placeholder="输入腾讯文档API Key" />
+                            </div>
+                            <div class="form-group">
+                                <label>Secret Key</label>
+                                <input type="password" class="form-input" id="setting-tencent-secret" placeholder="输入Secret Key" />
+                            </div>
+                        </div>
+                        <!-- 视频解析API -->
+                        <div class="setting-card">
+                            <h4>视频解析接口</h4>
+                            <div class="form-group">
+                                <label>解析服务地址</label>
+                                <input type="text" class="form-input" id="setting-video-api" placeholder="https://api.example.com/parse" />
+                            </div>
+                            <div class="form-group">
+                                <label>API Token</label>
+                                <input type="password" class="form-input" id="setting-video-token" placeholder="输入API Token" />
+                            </div>
+                        </div>
+                        <!-- 文案解析API -->
+                        <div class="setting-card">
+                            <h4>文案解析接口</h4>
+                            <div class="form-group">
+                                <label>解析服务地址</label>
+                                <input type="text" class="form-input" id="setting-copy-api" placeholder="https://api.example.com/copy" />
+                            </div>
+                            <div class="form-group">
+                                <label>API Token</label>
+                                <input type="password" class="form-input" id="setting-copy-token" placeholder="输入API Token" />
+                            </div>
+                        </div>
+                        <!-- 自动化浏览器 -->
+                        <div class="setting-card">
+                            <h4>自动化浏览器</h4>
+                            <div class="form-group">
+                                <label>Puppeteer/Playwright 路径</label>
+                                <input type="text" class="form-input" id="setting-browser-path" placeholder="浏览器可执行文件路径" />
+                            </div>
+                            <div class="form-group">
+                                <label>代理服务地址</label>
+                                <input type="text" class="form-input" id="setting-proxy-api" placeholder="https://api.example.com/proxy" />
+                            </div>
+                        </div>
+                        <!-- 本地文件夹 -->
+                        <div class="setting-card">
+                            <h4>本地视频文件夹</h4>
+                            <div class="form-group">
+                                <label>视频存储路径</label>
+                                <input type="text" class="form-input" id="setting-video-folder" placeholder="D:\Videos\代运营视频" />
+                            </div>
+                            <div class="form-group">
+                                <label>文案存储路径</label>
+                                <input type="text" class="form-input" id="setting-copy-folder" placeholder="D:\Documents\代运营文案" />
+                            </div>
+                        </div>
+                        <!-- 平台通知 -->
+                        <div class="setting-card">
+                            <h4>通知设置</h4>
+                            <div class="form-group">
+                                <label>企业微信Webhook</label>
+                                <input type="text" class="form-input" id="setting-wecom-webhook" placeholder="https://qyapi.weixin.qq.com/..." />
+                            </div>
+                            <div class="form-group">
+                                <label>每日数据推送时间</label>
+                                <input type="time" class="form-input" id="setting-push-time" value="18:00" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 登录界面自定义 -->
+                    <div class="setting-card">
+                        <h4>登录界面自定义</h4>
+                        <p class="form-hint" style="margin-bottom:10px;">自定义登录页面的标题、Logo、文字和背景图片</p>
+                        <div class="form-group">
+                            <label>平台标题</label>
+                            <input type="text" class="form-input" id="setting-login-title" placeholder="代运营数字化平台" />
+                        </div>
+                        <div class="form-group">
+                            <label>Logo 文字</label>
+                            <input type="text" class="form-input" id="setting-login-logo" placeholder="OP" maxlength="4" />
+                        </div>
+                        <div class="form-group">
+                            <label>登录页副标题</label>
+                            <input type="text" class="form-input" id="setting-login-subtitle" placeholder="一站式代运营数据管理与自动化平台" />
+                        </div>
+                        <div class="form-group">
+                            <label>登录欢迎语</label>
+                            <input type="text" class="form-input" id="setting-login-welcome" placeholder="欢迎登录" />
+                        </div>
+                        <div class="form-group">
+                            <label>背景图片URL</label>
+                            <input type="text" class="form-input" id="setting-login-bgimage" placeholder="https://example.com/bg.jpg（留空使用默认渐变）" />
+                        </div>
+                        <div class="form-group">
+                            <label>品牌描述文字</label>
+                            <textarea class="form-input" id="setting-login-desc" rows="2" placeholder="一句话描述平台功能"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>特性列表（每行一条）</label>
+                            <textarea class="form-input" id="setting-login-features" rows="4" placeholder="多账号数据实时监控与可视化&#10;视频/文案自动解析与下载&#10;内嵌自动化浏览器操作&#10;团队协作与权限分级管理"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>员工登录提示</label>
+                            <input type="text" class="form-input" id="setting-login-emp-hint" placeholder="员工账号由管理员在后台添加后生成" />
+                        </div>
+                        <div class="form-group">
+                            <label>管理员登录提示</label>
+                            <input type="text" class="form-input" id="setting-login-admin-hint" placeholder="请输入管理员账号和密码" />
+                        </div>
+                    </div>
+                    <!-- 管理员账号安全设置 -->
+                    <div class="setting-card" id="admin-security-card" style="margin-top:24px;">
+                        <h4>管理员账号安全</h4>
+                        <p class="form-hint" style="margin-bottom:10px;">修改管理员登录账号和密码（需验证旧密码）</p>
+                        <div class="form-group">
+                            <label>当前账号</label>
+                            <input type="text" class="form-input" id="setting-admin-account" placeholder="admin" />
+                        </div>
+                        <div class="form-group">
+                            <label>旧密码</label>
+                            <input type="password" class="form-input" id="setting-admin-old-password" placeholder="请输入当前管理员密码" />
+                        </div>
+                        <div class="form-group">
+                            <label>新密码</label>
+                            <input type="password" class="form-input" id="setting-admin-new-password" placeholder="请输入新密码" />
+                        </div>
+                        <div class="form-group">
+                            <label>确认新密码</label>
+                            <input type="password" class="form-input" id="setting-admin-confirm-password" placeholder="请再次输入新密码" />
+                        </div>
+                        <button class="btn btn-primary" id="save-admin-security-btn" style="margin-top:8px;">修改管理员账号密码</button>
+                    </div>
+
+                    <!-- 年度工作日历 -->
+                    <div class="setting-card" id="work-calendar-card" style="margin-top:24px;">
+                        <h4>年度工作日历</h4>
+                        <p class="form-hint" style="margin-bottom:10px;">用于剪辑工作表「实际工作天数」计算：系统默认周六上班、周日休息；以下配置可覆盖法定节假日与调休上班日。每行一个日期，格式 YYYY-MM-DD。</p>
+                        <div class="form-group">
+                            <label>额外法定节假日（新增放假）</label>
+                            <textarea class="form-input" id="setting-work-calendar-holidays" rows="3" placeholder="例如：2026-01-01\n2026-02-23"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>调休上班日（原本是周末，但需上班）</label>
+                            <textarea class="form-input" id="setting-work-calendar-workdays" rows="3" placeholder="例如：2026-02-14\n2026-02-28"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>移除内置节假日（如国务院调整，可取消系统内置的某天放假）</label>
+                            <textarea class="form-input" id="setting-work-calendar-removed" rows="2" placeholder="例如：2026-01-03"></textarea>
+                        </div>
+                        <button class="btn btn-primary" id="save-work-calendar-btn" style="margin-top:8px;">保存工作日历</button>
+                    </div>
+                    <div class="settings-actions">
+                        <button class="btn btn-primary" id="save-settings-btn">保存设置</button>
+                        <button class="btn btn-outline" id="reset-settings-btn">恢复默认</button>
+                    </div>
+
+                    <!-- 数据备份与恢复 -->
+                    <div class="setting-card" id="data-backup-card" style="margin-top:24px;">
+                        <h4>数据备份与恢复</h4>
+                        <p class="form-hint" style="margin-bottom:10px;">将本平台全部数据导出为 JSON 文件备份，或从 JSON 文件恢复。恢复会覆盖当前全部数据，请谨慎操作。</p>
+                        <div class="form-group">
+                            <button class="btn btn-outline" id="export-data-btn" style="margin-right:10px;">导出全部数据</button>
+                            <button class="btn btn-outline" id="import-data-btn">从文件恢复数据</button>
+                            <input type="file" id="import-data-file" accept=".json" style="display:none;" />
+                        </div>
+                        <div id="import-preview" class="form-hint" style="margin-top:10px;display:none;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图10: 请假申请 ========== -->
+            <section id="view-leave" class="view">
+                <!-- 员工端：我的请假申请 -->
+                <div class="module-card" id="leave-employee-card">
+                    <div class="module-header">
+                        <h3>我的请假申请</h3>
+                        <p class="module-desc">填写请假信息并提交，管理员审核后生效</p>
+                    </div>
+                    <div class="leave-apply-layout">
+                        <div class="leave-form-col">
+                            <h4>提交请假申请</h4>
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label>请假类型 <span class="required">*</span></label>
+                                    <select class="form-select" id="leave-form-type">
+                                        <option value="事假">事假</option>
+                                        <option value="病假">病假</option>
+                                        <option value="年假">年假</option>
+                                        <option value="调休">调休</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>状态</label>
+                                    <input type="text" class="form-input" value="待审核" disabled />
+                                </div>
+                                <div class="form-group">
+                                    <label>开始日期 <span class="required">*</span></label>
+                                    <input type="date" class="form-input" id="leave-form-start" />
+                                </div>
+                                <div class="form-group">
+                                    <label>结束日期 <span class="required">*</span></label>
+                                    <input type="date" class="form-input" id="leave-form-end" />
+                                </div>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label>请假事由 <span class="required">*</span></label>
+                                <textarea class="form-input" id="leave-form-reason" rows="3" placeholder="请说明请假原因"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-primary" id="leave-submit-btn">提交申请</button>
+                                <button class="btn btn-outline" id="leave-reset-btn">重置</button>
+                            </div>
+                        </div>
+                        <div class="leave-list-col">
+                            <h4>我的申请记录</h4>
+                            <div class="leave-my-list" id="leave-my-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 管理员端：请假审核 -->
+                <div class="module-card admin-only" id="leave-admin-card" style="display:none;">
+                    <div class="module-header">
+                        <h3>请假审核（管理员）</h3>
+                        <p class="module-desc">审核员工提交的请假申请</p>
+                    </div>
+                    <div class="salary-toolbar">
+                        <div class="salary-summary">
+                            <span>待审核：<strong id="leave-pending-count">0</strong></span>
+                            <span>已通过：<strong id="leave-approved-count">0</strong></span>
+                            <span>已拒绝：<strong id="leave-rejected-count">0</strong></span>
+                        </div>
+                        <div class="leave-filter-tabs">
+                            <button class="leave-filter-tab active" data-status="all">全部</button>
+                            <button class="leave-filter-tab" data-status="pending">待审核</button>
+                            <button class="leave-filter-tab" data-status="approved">已通过</button>
+                            <button class="leave-filter-tab" data-status="rejected">已拒绝</button>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>申请人</th>
+                                    <th>类型</th>
+                                    <th>开始</th>
+                                    <th>结束</th>
+                                    <th>事由</th>
+                                    <th>提交时间</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leave-admin-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== 视图11: 每日报餐 ========== -->
+            <section id="view-meal" class="view">
+                <!-- 员工端：每日报餐 -->
+                <div class="module-card">
+                    <div class="module-header meal-header">
+                        <div class="meal-stat-left">
+                            <span class="meal-stat-label">报餐次数</span>
+                            <span class="meal-stat-value" id="meal-my-count">0</span>
+                        </div>
+                        <div>
+                            <h3 style="margin:0;">每日报餐</h3>
+                            <p class="module-desc" style="margin:4px 0 0;">选择日期进行报餐，管理员将在每晚推送提醒</p>
+                        </div>
+                        <div class="meal-stat-right">
+                            <span class="meal-stat-label">当月累计金额</span>
+                            <span class="meal-stat-value" id="meal-my-amount">¥0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="meal-body">
+                        <div class="meal-prompt-row">
+                            <label class="meal-prompt-check">
+                                <input type="checkbox" id="meal-prompt-check" />
+                                <span>开启报餐提醒（每日推送）</span>
+                            </label>
+                        </div>
+                        <div class="meal-date-row">
+                            <label>报餐日期</label>
+                            <input type="date" class="form-input" id="meal-date-picker" />
+                        </div>
+                        <div class="meal-circles">
+                            <button class="meal-circle meal-circle-report" id="meal-report-btn">
+                                <span class="meal-circle-text">报餐</span>
+                            </button>
+                            <button class="meal-circle meal-circle-cancel" id="meal-cancel-btn" style="display:none;">
+                                <span class="meal-circle-text">取消</span>
+                            </button>
+                        </div>
+                        <p class="meal-hint" id="meal-status-hint">请选择日期后点击「报餐」</p>
+                    </div>
+                </div>
+
+                <!-- 员工端：报餐记录 -->
+                <div class="module-card" id="meal-records-card">
+                    <div class="module-header">
+                        <h3 style="margin:0;">我的报餐记录</h3>
+                        <p class="module-desc" style="margin:4px 0 0;">本月报餐明细，可逐条取消</p>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>日期</th>
+                                    <th>金额</th>
+                                    <th style="width:120px;">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="meal-records-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 管理员端：报餐管理 -->
+                <div class="module-card admin-only" id="meal-admin-card" style="display:none;">
+                    <div class="module-header">
+                        <h3>报餐管理（管理员）</h3>
+                        <p class="module-desc">设置餐标金额与提醒提示词，查看每位员工报餐详情</p>
+                    </div>
+                    <div class="meal-admin-config">
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>每日餐标金额（元）</label>
+                                <input type="number" class="form-input" id="meal-standard-amount" min="0" step="0.5" />
+                            </div>
+                            <div class="form-group">
+                                <label>提醒开关</label>
+                                <label class="switch-line">
+                                    <input type="checkbox" id="meal-prompt-enabled" />
+                                    <span>启用每日报餐提醒推送</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-full">
+                            <label>报餐提醒提示词</label>
+                            <textarea class="form-input" id="meal-prompt-text" rows="2" placeholder="例如：亲爱的同事，请记得今天报餐哦～"></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="meal-save-config-btn">保存配置</button>
+                        </div>
+                    </div>
+                    <div class="salary-toolbar" style="margin-top:20px;">
+                        <h4 style="margin:0;">员工报餐详情</h4>
+                        <div class="salary-summary">
+                            <span>报餐总人数：<strong id="meal-total-people">0</strong></span>
+                            <span>当月总餐数：<strong id="meal-total-count">0</strong></span>
+                            <span>当月总金额：<strong id="meal-total-amount">¥0.00</strong></span>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>员工</th>
+                                    <th>本月报餐次数</th>
+                                    <th>本月累计金额</th>
+                                    <th>最近报餐日期</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="meal-admin-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toast 通知 -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/supabase-sync.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js?v=20260728a"></script>
+</body>
+</html>
